@@ -10,7 +10,7 @@ const roundedbox = new RoundedBoxGeometry(14, 20, 2, 20, 1)
 const white = new MeshStandardMaterial({ roughness: 0.2, metalness: 1, side: 2 })
 const blue = new MeshStandardMaterial({ roughness: 0.2, metalness: 1, color: 0x5494f8 })
 
-export default function Satellite({ position, rotation, scale, startAnimation = 0, onClick }) {
+export default function Station3D({ position, rotation, scale, startAnimation = 0, onClick }) {
   const [hovered, setHover] = useState(false)
   const explode = useSpringValue(14, { config: { mass: 1, friction: 15, tension: 350, clamp: true } })
   const satellite = useRef()
@@ -31,30 +31,28 @@ export default function Satellite({ position, rotation, scale, startAnimation = 
           <animated.mesh geometry={halfsphere} material={white} position={explode.to((v) => [0, -v - 2, 0])} scale={[6, 6, 6]} />
         </group>
       </group>
-      {
-        <mesh
-          position={position}
-          scale={scale}
-          onPointerOver={() => {
-            setHover(true)
-            explode.start(20)
-          }}
-          onPointerOut={() => {
-            setHover(false)
-            explode.start(14)
-          }}
-          onClick={() => {
-            explode
-              .start(35)
-              .then(() => explode.start(14))
-              .then(() => onClick())
-          }}
-        >
-          <sphereGeometry args={[1, 32, 32]} />
-          <meshStandardMaterial color={"blue"} transparent={true} opacity={hovered ? 0 : 0.1} />
-        </mesh>
-      }
-      <Text position={[position[0], -175, 0]} color="white" fontSize={40} textAlign="center" font="./GothamLight.otf">
+      <mesh
+        position={position}
+        scale={scale}
+        onPointerOver={() => {
+          setHover(true)
+          explode.start(20)
+        }}
+        onPointerOut={() => {
+          setHover(false)
+          explode.start(14)
+        }}
+        onClick={() => {
+          explode
+            .start(35)
+            .then(() => explode.start(14))
+            .then(() => onClick())
+        }}
+      >
+        <sphereGeometry args={[1, 32, 32]} />
+        <meshStandardMaterial color={"blue"} transparent={true} opacity={hovered ? 0 : 0.1} />
+      </mesh>
+      <Text position={[position[0], position[1] - 175, 0]} color="white" fontSize={40} textAlign="center" font="./GothamLight.otf">
         Station3D
       </Text>
     </>

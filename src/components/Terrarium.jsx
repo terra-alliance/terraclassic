@@ -40,13 +40,13 @@ function Plant() {
     <group ref={plant}>
       <mesh position={[0, 0, 0]} rotation-z={180 * (Math.PI / 180)}>
         <cylinderGeometry args={[4, 4, 85, 32]} />
-        <meshStandardMaterial color={"green"} roughness={0.5} metalness={1}  />
+        <meshStandardMaterial color={"green"} roughness={0.5} metalness={1} />
       </mesh>
       <Extrude position={[-30, 55, 10]} rotation={[45 * (Math.PI / 180), 0, 45 * (Math.PI / 180)]} scale={50} args={[arcShape, { curveSegments: 48, steps: 1, depth: 0.1, bevelEnabled: false }]}>
-        <meshStandardMaterial color={"green"} roughness={0.5} metalness={1}  />
+        <meshStandardMaterial color={"green"} roughness={0.5} metalness={1} />
       </Extrude>
       <Extrude position={[30, 25, -20]} rotation={[45 * (Math.PI / 180), 0, -135 * (Math.PI / 180)]} scale={50} args={[arcShape, { curveSegments: 48, steps: 1, depth: 0.1, bevelEnabled: false }]}>
-        <meshStandardMaterial color={"green"} roughness={0.5} metalness={1}  />
+        <meshStandardMaterial color={"green"} roughness={0.5} metalness={1} />
       </Extrude>
     </group>
   )
