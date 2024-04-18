@@ -1,9 +1,10 @@
 import { useRef } from "react"
 import { useFrame } from "@react-three/fiber"
 import { useGLTF } from "@react-three/drei"
+import luncGLB from "/lunc.glb?url&URL"
 
 export default function Lunc({ position, scale }) {
-  const { nodes } = useGLTF("/lunc.glb")
+  const { nodes } = useGLTF(luncGLB)
 
   const mesh = useRef()
   useFrame((state, delta) => {
