@@ -1,1 +1,1 @@
-https://terraclassic.pages.dev/
+https://terra-alliance.github.io/terraclassic/
